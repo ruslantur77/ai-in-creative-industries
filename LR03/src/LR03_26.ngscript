@@ -1,0 +1,352 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 5,
+  "metadata": {
+    "kernelspec": {
+      "name": "ijulia-1.9",
+      "display_name": "IJulia 1.9.3",
+      "language": "julia"
+    },
+    "language_info": {
+      "name": "julia",
+      "file_extension": ".jl",
+      "version": "1.9.3"
+    },
+    "engee": {}
+  },
+  "cells": [
+    {
+      "id": "8a19f4d8",
+      "cell_type": "code",
+      "source": [
+        "include(\"lab03_lib.jl\")"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "variant_summary (generic function with 1 method)"
+          },
+          "metadata": {},
+          "execution_count": 1
+        }
+      ],
+      "metadata": {
+        "name": "Название секции",
+        "engee": {
+          "isDisplay": true,
+          "isParagraph": false,
+          "isClosedParagraph": false,
+          "amountHideCellsInside": 0,
+          "codeOutputView": "col",
+          "codeOutputHidden": false,
+          "outputInfo": {
+            "isExpanded": false,
+            "scrollTop": 0
+          },
+          "maskInfo": {
+            "isMaskVisible": true,
+            "isEditorVisible": true,
+            "isAutoplayActive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "43710c9a",
+      "cell_type": "code",
+      "source": [
+        "# 1. Свойства сцены\ndescribe_image(make_scene(101; scene_preset(5)...))"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(size = (128, 128), eltype = \"RGB{Float64}\", min = 0.08115622264322489, max = 0.9185814096363565, bytes = 393216)"
+          },
+          "metadata": {},
+          "execution_count": 2
+        }
+      ],
+      "metadata": {
+        "name": "Название секции",
+        "engee": {
+          "isDisplay": true,
+          "isParagraph": false,
+          "isClosedParagraph": false,
+          "amountHideCellsInside": 0,
+          "codeOutputView": "col",
+          "codeOutputHidden": false,
+          "outputInfo": {
+            "isExpanded": false,
+            "scrollTop": 0
+          },
+          "maskInfo": {
+            "isMaskVisible": true,
+            "isEditorVisible": true,
+            "isAutoplayActive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "7a588d4b",
+      "cell_type": "code",
+      "source": [
+        "# 2. Яркость двумя способами\ng1 = luma_manual(make_scene(101; scene_preset(5)...))\ng2 = luma_images(make_scene(101; scene_preset(5)...))\nmaximum(abs.(g1 .- g2))   # ожидается ~10⁻⁸"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "9.74440139689392e-9"
+          },
+          "metadata": {},
+          "execution_count": 3
+        }
+      ],
+      "metadata": {
+        "name": "Название секции",
+        "engee": {
+          "isDisplay": true,
+          "isParagraph": false,
+          "isClosedParagraph": false,
+          "amountHideCellsInside": 0,
+          "codeOutputView": "col",
+          "codeOutputHidden": false,
+          "outputInfo": {
+            "isExpanded": false,
+            "scrollTop": 0
+          },
+          "maskInfo": {
+            "isMaskVisible": true,
+            "isEditorVisible": true,
+            "isAutoplayActive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "2f4f46ad",
+      "cell_type": "code",
+      "source": [
+        "# 3. Контрольная сумма\narray_sha(g1)             # записать первые 16 символов"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "\"037c4c5075b4703a162908a506aa674826890b58027f2828a853b5daca634851\""
+          },
+          "metadata": {},
+          "execution_count": 14
+        }
+      ],
+      "metadata": {
+        "name": "Название секции",
+        "engee": {
+          "isDisplay": true,
+          "isParagraph": false,
+          "isClosedParagraph": false,
+          "amountHideCellsInside": 0,
+          "codeOutputView": "col",
+          "codeOutputHidden": false,
+          "outputInfo": {
+            "isExpanded": false,
+            "scrollTop": 0
+          },
+          "maskInfo": {
+            "isMaskVisible": true,
+            "isEditorVisible": true,
+            "isAutoplayActive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "b3367ca2",
+      "cell_type": "code",
+      "source": [
+        "using Plots\nhist_counts(g1, 32)\nbar(1:32, hist_counts(g1, 32), title=\"Гистограмма до\", xlabel=\"интервал\", ylabel=\"отсчёт\")\nsavefig(\"hist_before.png\")"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "\"/user/Турсунов_РА/LR03/hist_before.png\""
+          },
+          "metadata": {},
+          "execution_count": 5
+        }
+      ],
+      "metadata": {
+        "name": "Название секции",
+        "engee": {
+          "isDisplay": true,
+          "isParagraph": false,
+          "isClosedParagraph": false,
+          "amountHideCellsInside": 0,
+          "codeOutputView": "col",
+          "codeOutputHidden": false,
+          "outputInfo": {
+            "isExpanded": false,
+            "scrollTop": 0
+          },
+          "maskInfo": {
+            "isMaskVisible": true,
+            "isEditorVisible": true,
+            "isAutoplayActive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "783477ad",
+      "cell_type": "code",
+      "source": [
+        "# 5. Воздействие\nh = apply_factor(g1, 2)   # imresize ×2 → возврат"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "128×128 Matrix{Float64}:\n 0.38478   0.385902  0.388145  0.390655  …  0.5423    0.53909   0.537485\n 0.383778  0.385289  0.38831   0.390712     0.539688  0.539713  0.539726\n 0.381775  0.384064  0.38864   0.390824     0.534462  0.54096   0.544208\n 0.382635  0.384251  0.387484  0.389109     0.533437  0.538468  0.540984\n 0.386357  0.385852  0.384842  0.385565     0.536611  0.532238  0.530052\n 0.385858  0.385475  0.38471   0.385822  …  0.535727  0.530918  0.528513\n 0.381139  0.383122  0.387089  0.389881     0.530785  0.534507  0.536368\n 0.420499  0.423039  0.42812   0.431074     0.549609  0.555241  0.558058\n 0.503938  0.505227  0.507804  0.509403     0.592198  0.593121  0.593582\n 0.547686  0.548093  0.548907  0.549046     0.612361  0.612743  0.612934\n 0.551744  0.551639  0.551428  0.550005  …  0.610099  0.614108  0.616113\n 0.553394  0.553721  0.554377  0.552325     0.608933  0.613141  0.615245\n 0.552635  0.554341  0.557753  0.556009     0.608864  0.609841  0.61033\n ⋮                                       ⋱  ⋮                   \n 0.384626  0.386439  0.390064  0.39376      0.449103  0.446465  0.445147\n 0.386519  0.386676  0.386989  0.390324     0.449216  0.447227  0.446233\n 0.392199  0.38963   0.384491  0.38613      0.446214  0.446538  0.4467\n 0.413062  0.410411  0.405109  0.405002     0.487156  0.487968  0.488374\n 0.44911   0.449021  0.448842  0.446938  …  0.572044  0.571519  0.571256\n 0.466606  0.46797   0.470697  0.468524     0.613455  0.614574  0.615133\n 0.46555   0.467258  0.470674  0.469758     0.61139   0.617134  0.620006\n 0.46389   0.465464  0.468612  0.468813     0.609516  0.615144  0.617958\n 0.461626  0.462588  0.464512  0.465688     0.607831  0.608602  0.608988\n 0.459222  0.460992  0.464532  0.466233  …  0.608817  0.607015  0.606114\n 0.456679  0.460678  0.468675  0.470449     0.612474  0.610382  0.609336\n 0.455407  0.46052   0.470746  0.472557     0.614303  0.612065  0.610947"
+          },
+          "metadata": {},
+          "execution_count": 6
+        }
+      ],
+      "metadata": {
+        "name": "Название секции",
+        "engee": {
+          "isDisplay": true,
+          "isParagraph": false,
+          "isClosedParagraph": false,
+          "amountHideCellsInside": 0,
+          "codeOutputView": "col",
+          "codeOutputHidden": false,
+          "outputInfo": {
+            "isExpanded": false,
+            "scrollTop": 0
+          },
+          "maskInfo": {
+            "isMaskVisible": true,
+            "isEditorVisible": true,
+            "isAutoplayActive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "5cb4dcb2",
+      "cell_type": "code",
+      "source": [
+        "bar(1:32, hist_counts(h, 32), title=\"Гистограмма после\", xlabel=\"интервал\", ylabel=\"отсчёт\")\nsavefig(\"hist_after.png\")"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "\"/user/Турсунов_РА/LR03/hist_after.png\""
+          },
+          "metadata": {},
+          "execution_count": 7
+        }
+      ],
+      "metadata": {
+        "name": "Название секции",
+        "engee": {
+          "isDisplay": true,
+          "isParagraph": false,
+          "isClosedParagraph": false,
+          "amountHideCellsInside": 0,
+          "codeOutputView": "col",
+          "codeOutputHidden": false,
+          "outputInfo": {
+            "isExpanded": false,
+            "scrollTop": 0
+          },
+          "maskInfo": {
+            "isMaskVisible": true,
+            "isEditorVisible": true,
+            "isAutoplayActive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "c8aedff8",
+      "cell_type": "code",
+      "source": [
+        "save(\"before.png\", Gray{N0f8}.(g1))\nsave(\"after.png\", Gray{N0f8}.(h))"
+      ],
+      "execution_count": 0,
+      "outputs": [],
+      "metadata": {
+        "name": "Название секции",
+        "engee": {
+          "isDisplay": true,
+          "isParagraph": false,
+          "isClosedParagraph": false,
+          "amountHideCellsInside": 0,
+          "codeOutputView": "col",
+          "codeOutputHidden": false,
+          "outputInfo": {
+            "isExpanded": false,
+            "scrollTop": 0
+          },
+          "maskInfo": {
+            "isMaskVisible": true,
+            "isEditorVisible": true,
+            "isAutoplayActive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "c7e8d310",
+      "cell_type": "code",
+      "source": [
+        "variant_summary(26)"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(variant = 26, ctx = 5, fac = 2, psnr = 34.25648521413159, rows = Any[(:mean, 0.4726328007892679, 8.388562082373387e-5, 0.47263280078926784, -5.551115123125783e-17, 6.617481123242993e-13, false), (:contrast, 0.07696182902667206, 8.830064012446348e-5, 0.07187958081728114, -0.005082248209390919, 57.556187613445104, true), (:entropy, 3.1884785933214914, 0.003690843460207886, 2.9743764662332515, -0.21410212708823995, 58.00899696682901, true)])"
+          },
+          "metadata": {},
+          "execution_count": 9
+        }
+      ],
+      "metadata": {
+        "name": "Название секции",
+        "engee": {
+          "isDisplay": true,
+          "isParagraph": false,
+          "isClosedParagraph": false,
+          "amountHideCellsInside": 0,
+          "codeOutputView": "col",
+          "codeOutputHidden": false,
+          "outputInfo": {
+            "isExpanded": false,
+            "scrollTop": 0
+          },
+          "maskInfo": {
+            "isMaskVisible": true,
+            "isEditorVisible": true,
+            "isAutoplayActive": false
+          }
+        }
+      }
+    }
+  ]
+}
