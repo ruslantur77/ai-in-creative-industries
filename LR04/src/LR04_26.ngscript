@@ -1,0 +1,428 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 5,
+  "metadata": {
+    "kernelspec": {
+      "display_name": "IJulia 1.9.3",
+      "language": "julia",
+      "name": "ijulia-1.9"
+    },
+    "language_info": {
+      "file_extension": ".jl",
+      "name": "julia",
+      "version": "1.9.3"
+    },
+    "engee": {}
+  },
+  "cells": [
+    {
+      "id": "33452635",
+      "cell_type": "code",
+      "source": [
+        "cd(\"/user/Турсунов_РА/LR04\")\npwd()   # должно вывести /user/Турсунов_РА/LR04"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "\"/user/Турсунов_РА/LR04\""
+          },
+          "metadata": {},
+          "execution_count": 1
+        }
+      ],
+      "metadata": {
+        "name": "Название секции",
+        "engee": {
+          "isDisplay": true,
+          "isParagraph": false,
+          "isClosedParagraph": false,
+          "amountHideCellsInside": 0,
+          "codeOutputView": "col",
+          "codeOutputHidden": false,
+          "outputInfo": {
+            "isExpanded": false,
+            "scrollTop": 0
+          },
+          "maskInfo": {
+            "isMaskVisible": true,
+            "isEditorVisible": true,
+            "isAutoplayActive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "792fc743",
+      "cell_type": "code",
+      "source": [
+        "include(\"lab04_lib.jl\")"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "variant_summary4 (generic function with 1 method)"
+          },
+          "metadata": {},
+          "execution_count": 2
+        }
+      ],
+      "metadata": {
+        "name": " ",
+        "engee": {
+          "isDisplay": true,
+          "isParagraph": false,
+          "isClosedParagraph": false,
+          "amountHideCellsInside": 0,
+          "codeOutputView": "col",
+          "codeOutputHidden": false,
+          "outputInfo": {
+            "isExpanded": false,
+            "scrollTop": 0
+          },
+          "maskInfo": {
+            "isMaskVisible": true,
+            "isEditorVisible": true,
+            "isAutoplayActive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "40cfbbaf",
+      "cell_type": "code",
+      "source": [
+        "s = make_gray4(101; scene4(5)...)\nsize(s)  # (128, 128)"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(128, 128)"
+          },
+          "metadata": {},
+          "execution_count": 3
+        }
+      ],
+      "metadata": {
+        "name": "Название секции",
+        "engee": {
+          "isDisplay": true,
+          "isParagraph": false,
+          "isClosedParagraph": false,
+          "amountHideCellsInside": 0,
+          "codeOutputView": "col",
+          "codeOutputHidden": false,
+          "outputInfo": {
+            "isExpanded": false,
+            "scrollTop": 0
+          },
+          "maskInfo": {
+            "isMaskVisible": true,
+            "isEditorVisible": true,
+            "isAutoplayActive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "b90c9ff4",
+      "cell_type": "code",
+      "source": [
+        "# 2. Чистая сцена (эталон)\ns0 = clean4(5)"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "128×128 Matrix{Float64}:\n 0.351172  0.351758  0.352344  0.35293   …  0.424414  0.425     0.425586\n 0.351758  0.352344  0.35293   0.353516     0.425     0.425586  0.426172\n 0.352344  0.35293   0.353516  0.354102     0.425586  0.426172  0.426758\n 0.35293   0.353516  0.354102  0.354687     0.426172  0.426758  0.427344\n 0.353516  0.354102  0.354687  0.355273     0.426758  0.427344  0.42793\n 0.354102  0.354687  0.355273  0.355859  …  0.427344  0.42793   0.428516\n 0.354687  0.355273  0.355859  0.356445     0.42793   0.428516  0.429102\n 0.355273  0.355859  0.356445  0.357031     0.428516  0.429102  0.429688\n 0.355859  0.356445  0.357031  0.357617     0.429102  0.429688  0.430273\n 0.356445  0.357031  0.357617  0.358203     0.429688  0.430273  0.430859\n 0.357031  0.357617  0.358203  0.358789  …  0.430273  0.430859  0.431445\n 0.357617  0.358203  0.358789  0.359375     0.430859  0.431445  0.432031\n 0.358203  0.358789  0.359375  0.359961     0.431445  0.432031  0.432617\n ⋮                                       ⋱  ⋮                   \n 0.419141  0.419727  0.420312  0.420898     0.492383  0.492969  0.493555\n 0.419727  0.420312  0.420898  0.421484     0.492969  0.493555  0.494141\n 0.420312  0.420898  0.421484  0.42207      0.493555  0.494141  0.494727\n 0.420898  0.421484  0.42207   0.422656     0.494141  0.494727  0.495312\n 0.421484  0.42207   0.422656  0.423242  …  0.494727  0.495312  0.495898\n 0.42207   0.422656  0.423242  0.423828     0.495312  0.495898  0.496484\n 0.422656  0.423242  0.423828  0.424414     0.495898  0.496484  0.49707\n 0.423242  0.423828  0.424414  0.425        0.496484  0.49707   0.497656\n 0.423828  0.424414  0.425     0.425586     0.49707   0.497656  0.498242\n 0.424414  0.425     0.425586  0.426172  …  0.497656  0.498242  0.498828\n 0.425     0.425586  0.426172  0.426758     0.498242  0.498828  0.499414\n 0.425586  0.426172  0.426758  0.427344     0.498828  0.499414  0.5"
+          },
+          "metadata": {},
+          "execution_count": 4
+        }
+      ],
+      "metadata": {
+        "name": "Название секции",
+        "engee": {
+          "isDisplay": true,
+          "isParagraph": false,
+          "isClosedParagraph": false,
+          "amountHideCellsInside": 0,
+          "codeOutputView": "col",
+          "codeOutputHidden": false,
+          "outputInfo": {
+            "isExpanded": false,
+            "scrollTop": 0
+          },
+          "maskInfo": {
+            "isMaskVisible": true,
+            "isEditorVisible": true,
+            "isAutoplayActive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "b311137a",
+      "cell_type": "code",
+      "source": [
+        "# 3. PSNR зашумлённой относительно эталона\npsnr_db(s, s0)   # ожидается ~30,5 дБ"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "30.402338340642586"
+          },
+          "metadata": {},
+          "execution_count": 5
+        }
+      ],
+      "metadata": {
+        "name": "Название секции",
+        "engee": {
+          "isDisplay": true,
+          "isParagraph": false,
+          "isClosedParagraph": false,
+          "amountHideCellsInside": 0,
+          "codeOutputView": "col",
+          "codeOutputHidden": false,
+          "outputInfo": {
+            "isExpanded": false,
+            "scrollTop": 0
+          },
+          "maskInfo": {
+            "isMaskVisible": true,
+            "isEditorVisible": true,
+            "isAutoplayActive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "25329f6d",
+      "cell_type": "code",
+      "source": [
+        "# 4. Операция\nh = gauss4(s, 1)"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "128×128 Matrix{Float64}:\n 0.37518   0.365162  0.352761  0.337961  …  0.422496  0.418635  0.416553\n 0.374846  0.374113  0.363148  0.348643     0.419656  0.418882  0.42071\n 0.373784  0.379951  0.371533  0.356294     0.417979  0.422583  0.423444\n 0.377567  0.37655   0.369383  0.358833     0.422156  0.424276  0.423927\n 0.377149  0.366882  0.361233  0.356338     0.433174  0.426329  0.424253\n 0.359651  0.351789  0.349987  0.350021  …  0.442174  0.43521   0.435061\n 0.343303  0.342741  0.34123   0.344988     0.439759  0.440223  0.44653\n 0.343292  0.343404  0.343428  0.351371     0.439863  0.43921   0.44561\n 0.348906  0.349296  0.355121  0.361781     0.444156  0.432103  0.434308\n 0.351323  0.357489  0.367793  0.369145     0.441516  0.421853  0.420192\n 0.351161  0.362662  0.373797  0.372386  …  0.436834  0.418086  0.409982\n 0.351657  0.363782  0.373559  0.371871     0.431437  0.419738  0.410349\n 0.353225  0.364071  0.37127   0.368923     0.427702  0.425138  0.419577\n ⋮                                       ⋱  ⋮                   \n 0.427692  0.415924  0.413876  0.421354     0.485495  0.480546  0.474529\n 0.425475  0.421032  0.419136  0.425228     0.483399  0.486224  0.4833\n 0.413344  0.416956  0.422403  0.430602     0.490488  0.493804  0.489333\n 0.398592  0.408697  0.423317  0.435682     0.500679  0.502118  0.502419\n 0.385884  0.405939  0.424655  0.435431  …  0.499982  0.50726   0.520917\n 0.387499  0.410121  0.421628  0.423008     0.488396  0.498514  0.51316\n 0.403535  0.418554  0.420263  0.413349     0.486049  0.48917   0.491539\n 0.422503  0.428985  0.428461  0.41924      0.497102  0.497393  0.493731\n 0.425785  0.429042  0.4344    0.431878     0.501987  0.504219  0.500951\n 0.41917   0.420583  0.42706   0.433407  …  0.492964  0.494223  0.49378\n 0.415018  0.410902  0.415309  0.425575     0.482725  0.479562  0.477969\n 0.413375  0.400746  0.402004  0.413826     0.484829  0.473777  0.46285"
+          },
+          "metadata": {},
+          "execution_count": 6
+        }
+      ],
+      "metadata": {
+        "name": "Название секции",
+        "engee": {
+          "isDisplay": true,
+          "isParagraph": false,
+          "isClosedParagraph": false,
+          "amountHideCellsInside": 0,
+          "codeOutputView": "col",
+          "codeOutputHidden": false,
+          "outputInfo": {
+            "isExpanded": false,
+            "scrollTop": 0
+          },
+          "maskInfo": {
+            "isMaskVisible": true,
+            "isEditorVisible": true,
+            "isAutoplayActive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "6388fe8e",
+      "cell_type": "code",
+      "source": [
+        "# 5. PSNR после относительно эталона\npsnr_db(h, s0)   # ожидается выше, чем у s"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "39.23306777397604"
+          },
+          "metadata": {},
+          "execution_count": 7
+        }
+      ],
+      "metadata": {
+        "name": "Название секции",
+        "engee": {
+          "isDisplay": true,
+          "isParagraph": false,
+          "isClosedParagraph": false,
+          "amountHideCellsInside": 0,
+          "codeOutputView": "col",
+          "codeOutputHidden": false,
+          "outputInfo": {
+            "isExpanded": false,
+            "scrollTop": 0
+          },
+          "maskInfo": {
+            "isMaskVisible": true,
+            "isEditorVisible": true,
+            "isAutoplayActive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "f88b9c41",
+      "cell_type": "code",
+      "source": [
+        "# 6. Энергия границ до и после\nedge_energy(s)\nedge_energy(h)"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "0.006905634628446923"
+          },
+          "metadata": {},
+          "execution_count": 8
+        }
+      ],
+      "metadata": {
+        "name": "Название секции",
+        "engee": {
+          "isDisplay": true,
+          "isParagraph": false,
+          "isClosedParagraph": false,
+          "amountHideCellsInside": 0,
+          "codeOutputView": "col",
+          "codeOutputHidden": false,
+          "outputInfo": {
+            "isExpanded": false,
+            "scrollTop": 0
+          },
+          "maskInfo": {
+            "isMaskVisible": true,
+            "isEditorVisible": true,
+            "isAutoplayActive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "9297689a",
+      "cell_type": "code",
+      "source": [
+        "# 7. Контраст до и после\nstd(s)\nstd(h)"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "0.057599156061999696"
+          },
+          "metadata": {},
+          "execution_count": 9
+        }
+      ],
+      "metadata": {
+        "name": "Название секции",
+        "engee": {
+          "isDisplay": true,
+          "isParagraph": false,
+          "isClosedParagraph": false,
+          "amountHideCellsInside": 0,
+          "codeOutputView": "col",
+          "codeOutputHidden": false,
+          "outputInfo": {
+            "isExpanded": false,
+            "scrollTop": 0
+          },
+          "maskInfo": {
+            "isMaskVisible": true,
+            "isEditorVisible": true,
+            "isAutoplayActive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "c6cf7c33",
+      "cell_type": "code",
+      "source": [
+        "# 8. Сохранить три PNG\nsave(\"noisy.png\", Gray{N0f8}.(s))\nsave(\"result.png\", Gray{N0f8}.(h))\nsave(\"clean.png\", Gray{N0f8}.(s0))"
+      ],
+      "execution_count": 0,
+      "outputs": [],
+      "metadata": {
+        "name": "Название секции",
+        "engee": {
+          "isDisplay": true,
+          "isParagraph": false,
+          "isClosedParagraph": false,
+          "amountHideCellsInside": 0,
+          "codeOutputView": "col",
+          "codeOutputHidden": false,
+          "outputInfo": {
+            "isExpanded": false,
+            "scrollTop": 0
+          },
+          "maskInfo": {
+            "isMaskVisible": true,
+            "isEditorVisible": true,
+            "isAutoplayActive": false
+          }
+        }
+      }
+    },
+    {
+      "id": "4c51b8ea",
+      "cell_type": "code",
+      "source": [
+        "variant_summary4(26)"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "(variant = 26, ctx = 5, fac = 2, iou = NaN, rows = Any[(:psnr, 30.460277956601335, 0.07450305641014301, 39.18360137481607, 8.723323418214736, 117.08678594596722, true), (:edge, 0.017513624589350362, 0.00019265447849289115, 0.0068702896882331, -0.010643334901117261, 55.2457175373164, true), (:contrast, 0.06505431727572435, 0.00024828585914999, 0.05747793702641587, -0.007576380249308477, 30.514747296710002, true)])"
+          },
+          "metadata": {},
+          "execution_count": 11
+        }
+      ],
+      "metadata": {
+        "name": "Название секции",
+        "engee": {
+          "isDisplay": true,
+          "isParagraph": false,
+          "isClosedParagraph": false,
+          "amountHideCellsInside": 0,
+          "codeOutputView": "col",
+          "codeOutputHidden": false,
+          "outputInfo": {
+            "isExpanded": false,
+            "scrollTop": 0
+          },
+          "maskInfo": {
+            "isMaskVisible": true,
+            "isEditorVisible": true,
+            "isAutoplayActive": false
+          }
+        }
+      }
+    }
+  ]
+}
