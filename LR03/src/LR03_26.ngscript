@@ -16,6 +16,44 @@
   },
   "cells": [
     {
+      "id": "497869c2",
+      "cell_type": "code",
+      "source": [
+        "cd(\"/user/Турсунов_РА/LR03\")\npwd()"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "\"/user/Турсунов_РА/LR03\""
+          },
+          "metadata": {},
+          "execution_count": 7
+        }
+      ],
+      "metadata": {
+        "name": "Название секции",
+        "engee": {
+          "isDisplay": true,
+          "isParagraph": false,
+          "isClosedParagraph": false,
+          "amountHideCellsInside": 0,
+          "codeOutputView": "col",
+          "codeOutputHidden": false,
+          "outputInfo": {
+            "isExpanded": false,
+            "scrollTop": 0
+          },
+          "maskInfo": {
+            "isMaskVisible": true,
+            "isEditorVisible": true,
+            "isAutoplayActive": false
+          }
+        }
+      }
+    },
+    {
       "id": "8a19f4d8",
       "cell_type": "code",
       "source": [
@@ -29,7 +67,7 @@
             "text/plain": "variant_summary (generic function with 1 method)"
           },
           "metadata": {},
-          "execution_count": 1
+          "execution_count": 8
         }
       ],
       "metadata": {
