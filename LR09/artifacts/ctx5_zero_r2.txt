@@ -1,0 +1,47 @@
+[
+  {
+    "subject": "polished metal surface with iridescent reflections",
+    "setting": "abstract metallic surface",
+    "style": "macro photography",
+    "lighting": "strong contrast",
+    "palette": ["gray", "purple", "teal"],
+    "composition": "close-up",
+    "avoid": ["logo"]
+  },
+  {
+    "subject": "neon grid on the horizon at sunset",
+    "setting": "synthwave landscape with pink and purple sky",
+    "style": "flat vector illustration",
+    "lighting": "neon glow",
+    "palette": ["pink", "purple"],
+    "composition": "centered",
+    "avoid": ["yellow"]
+  },
+  {
+    "subject": "fog over a dark lake with a lone light",
+    "setting": "dark misty lake at night",
+    "style": "minimal geometric",
+    "lighting": "soft dim light",
+    "palette": ["gray", "black", "amber"],
+    "composition": "wide negative space",
+    "avoid": []
+  },
+  {
+    "subject": "black and white geometric stripes",
+    "setting": "abstract geometric background",
+    "style": "minimal geometric",
+    "lighting": "high contrast",
+    "palette": ["black", "white"],
+    "composition": "symmetrical",
+    "avoid": []
+  },
+  {
+    "subject": "pastel clouds and glass spheres",
+    "setting": "dreamy pastel sky",
+    "style": "3D render",
+    "lighting": "soft diffused light",
+    "palette": ["pink", "blue", "white"],
+    "composition": "rule of thirds",
+    "avoid": []
+  }
+]

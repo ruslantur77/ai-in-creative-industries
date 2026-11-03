@@ -1,0 +1,56 @@
+Ключевые элементы:
+1. Предмет: шлифованный металл с радужными бликами; стиль: макросъёмка; цвета: не указаны явно (радужные блики — беру blue, purple, green); ограничение: без логотипов.
+2. Предмет: неоновая сетка на горизонте; стиль: не указан (беру flat vector illustration); цвета: розовый, фиолетовый; ограничение: без жёлтого.
+3. Предмет: туман над тёмным озером, одинокий огонёк; стиль: минимализм (minimal geometric); цвета: gray, blue, amber; ограничений нет.
+4. Предмет: чёрно-белые геометрические полосы; стиль: минимализм (minimal geometric); цвета: ровно два — black, white; ограничений нет (кроме палитры).
+5. Предмет: пастельные облака и стеклянные шары; стиль: не указан (беру watercolor); цвета: pink, blue, white; ограничений нет.
+
+```json
+[
+  {
+    "subject": "polished metal surface with iridescent rainbow highlights",
+    "setting": "abstract macro close-up background",
+    "style": "macro photography",
+    "lighting": "strong high contrast lighting",
+    "palette": ["blue", "purple", "green"],
+    "composition": "close-up",
+    "avoid": ["logo"]
+  },
+  {
+    "subject": "neon grid on the horizon line",
+    "setting": "synthwave sunset sky background",
+    "style": "flat vector illustration",
+    "lighting": "glowing neon backlight",
+    "palette": ["pink", "purple"],
+    "composition": "centered",
+    "avoid": []
+  },
+  {
+    "subject": "fog over a dark lake with a single light",
+    "setting": "misty dark lake at night",
+    "style": "minimal geometric",
+    "lighting": "dim soft glow",
+    "palette": ["gray", "blue", "amber"],
+    "composition": "wide negative space",
+    "avoid": []
+  },
+  {
+    "subject": "black and white geometric stripes",
+    "setting": "plain abstract background",
+    "style": "minimal geometric",
+    "lighting": "high contrast lighting",
+    "palette": ["black", "white"],
+    "composition": "symmetrical",
+    "avoid": []
+  },
+  {
+    "subject": "pastel clouds and glass spheres",
+    "setting": "soft dreamy sky background",
+    "style": "watercolor",
+    "lighting": "soft diffused light",
+    "palette": ["pink", "blue", "white"],
+    "composition": "rule of thirds",
+    "avoid": []
+  }
+]
+```

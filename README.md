@@ -50,6 +50,11 @@
 
 Материалы лежат в папке [`LR08/`](LR08/): исходный код (`src/lab07_lib.py`, `lab08_lib.py`, `LR08_v26.py`), артефакты (`artifacts/comparison.png`, `out_v26.txt`), журнал эксперимента (`journal.md`), отчёт (`reports/`), демо-эталоны (`demo_journal/`).
 
+## ЛР 9. Промпт-инжиниринг
+
+Вариант 26 — контекст «обложка электронной музыки», элемент «фраза об освещении: neon rim light». **Часть 1 (Engee, SD Turbo + CLIP ViT-L/14):** сравнены запросы A (`electronic music cover art`) и B (`electronic music cover art, neon rim light`) на 5 seed. Результат: clip_target **+7.146** (10.97 → 18.12, значимо по 2s и по допуску ±1.0) — фраза об освещении работает; clip_subject +1.41 (чуть за допуском, но **вверх** — не увели от предмета); edge 0.000 (контрольная метрика — не меняется); contrast **+60 %** (neon rim light даёт яркий контур). **Часть 2 (DeepSeek, 9 чатов — 3 приёма × 3 повтора):** zero-shot K1=0.867, few-shot K1=0.933, step-by-step **K1=1.000** (без ошибок); K4 (стабильность): zero 0.800, few и step 0.867. Типичная ошибка DeepSeek — путает запрет цвета с запретом объекта (в `avoid` кладёт `"yellow"` вместо пустого массива). Версии совпадают с эталоном МУ: torch 2.4.1+cpu, diffusers 0.32.2, transformers 4.57.6.
+
+Материалы лежат в папке [`LR09/`](LR09/): исходный код (`src/lab09_lib.py`, `lab09_llm.py`, `LR09_v26.py`, `summarize_all.py`), артефакты (`artifacts/A_seed101.png`, `B_seed101.png`, 9 файлов ответов `ctx5_*.txt`, `summary_k1_k4.png`), журнал эксперимента (`journal.md`).
 ---
 
 ## Лицензии

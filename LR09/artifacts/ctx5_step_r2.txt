@@ -1,0 +1,56 @@
+Ключевые элементы:
+1. Предмет: шлифованный металл, радужные блики. Стиль: макросъёмка. Цвета: не указаны явно (радужные блики → допустимы amber, purple, teal). Ограничения: без логотипов.
+2. Предмет: неоновая сетка на горизонте. Стиль: не указан (подходит flat vector / minimal geometric / 3D). Цвета: розовый, фиолетовый; жёлтый запрещён. Ограничения: без жёлтого (учитываем через палитру).
+3. Предмет: туман над тёмным озером, одинокий огонёк. Стиль: минимализм. Цвета: тёмные/серые, тёплый огонёк. Ограничения: нет.
+4. Предмет: чёрно-белые геометрические полосы. Стиль: минимализм/геометрия. Цвета: ровно два — black, white. Ограничения: ровно два цвета.
+5. Предмет: пастельные облака и стеклянные шары. Стиль: мягкий, пастельный (watercolor / 3D). Цвета: пастель → pink, blue, purple. Ограничения: нет.
+
+```json
+[
+  {
+    "subject": "polished metal surface with iridescent rainbow reflections",
+    "setting": "abstract close-up metallic background",
+    "style": "macro photography",
+    "lighting": "strong contrast highlights",
+    "palette": ["teal", "purple", "amber"],
+    "composition": "close-up",
+    "avoid": ["logo"]
+  },
+  {
+    "subject": "neon grid on the horizon at sunset",
+    "setting": "synthetic retro futuristic landscape",
+    "style": "minimal geometric",
+    "lighting": "glowing neon backlight",
+    "palette": ["pink", "purple"],
+    "composition": "centered",
+    "avoid": []
+  },
+  {
+    "subject": "lone light glowing over foggy dark lake",
+    "setting": "misty dark lake at night",
+    "style": "minimal geometric",
+    "lighting": "soft dim glow",
+    "palette": ["gray", "black", "amber"],
+    "composition": "wide negative space",
+    "avoid": []
+  },
+  {
+    "subject": "black and white geometric stripes pattern",
+    "setting": "abstract flat background",
+    "style": "minimal geometric",
+    "lighting": "high contrast graphic light",
+    "palette": ["black", "white"],
+    "composition": "symmetrical",
+    "avoid": []
+  },
+  {
+    "subject": "pastel clouds and floating glass spheres",
+    "setting": "soft dreamy pastel sky",
+    "style": "watercolor",
+    "lighting": "soft diffused light",
+    "palette": ["pink", "blue", "purple"],
+    "composition": "rule of thirds",
+    "avoid": []
+  }
+]
+```

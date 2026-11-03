@@ -1,0 +1,79 @@
+**1. Шлифованный металл с радужными бликами**
+- Предмет: шлифованный металл, радужные блики, макросъёмка
+- Стиль: macro photography
+- Цвета: радужные блики (teal, pink, purple)
+- Ограничения: без логотипов → logo
+
+**2. Синтвейв: неоновая сетка, розово-фиолетовый закат**
+- Предмет: неоновая сетка на горизонте, закат
+- Стиль: flat vector illustration
+- Цвета: pink, purple
+- Ограничения: без жёлтого → жёлтый не входит в список допустимых цветов, поэтому в avoid его не добавляем; прямых запретов из списка avoid нет → []
+
+**3. Ambient: туман над тёмным озером, одинокий огонёк**
+- Предмет: туман над тёмным озером, одинокий огонёк
+- Стиль: minimal geometric
+- Цвета: gray, black, amber
+- Ограничения: нет → []
+
+**4. Техно: чёрно-белые геометрические полосы, симметрия**
+- Предмет: чёрно-белые геометрические полосы
+- Стиль: minimal geometric
+- Цвета: black, white (ровно два)
+- Ограничения: нет → []
+
+**5. Дрим-поп: пастельные облака и стеклянные шары**
+- Предмет: пастельные облака и стеклянные шары
+- Стиль: 3D render
+- Цвета: pink, blue, white
+- Ограничения: нет → []
+
+```json
+[
+  {
+    "subject": "polished metal surface with iridescent rainbow highlights",
+    "setting": "extreme close-up abstract metallic texture",
+    "style": "macro photography",
+    "lighting": "strong high contrast reflections",
+    "palette": ["teal", "pink", "purple"],
+    "composition": "close-up",
+    "avoid": ["logo"]
+  },
+  {
+    "subject": "neon grid on the horizon at sunset",
+    "setting": "retro synthwave landscape with glowing sky",
+    "style": "flat vector illustration",
+    "lighting": "neon glow, dusk backlight",
+    "palette": ["pink", "purple"],
+    "composition": "centered",
+    "avoid": []
+  },
+  {
+    "subject": "lone light over foggy dark lake",
+    "setting": "misty lake at night, empty horizon",
+    "style": "minimal geometric",
+    "lighting": "soft dim ambient glow",
+    "palette": ["gray", "black", "amber"],
+    "composition": "wide negative space",
+    "avoid": []
+  },
+  {
+    "subject": "black and white geometric stripes",
+    "setting": "abstract flat background",
+    "style": "minimal geometric",
+    "lighting": "high contrast graphic light",
+    "palette": ["black", "white"],
+    "composition": "symmetrical",
+    "avoid": []
+  },
+  {
+    "subject": "pastel clouds and glass spheres",
+    "setting": "soft dreamy sky background",
+    "style": "3D render",
+    "lighting": "soft diffused light",
+    "palette": ["pink", "blue", "white"],
+    "composition": "rule of thirds",
+    "avoid": []
+  }
+]
+```
