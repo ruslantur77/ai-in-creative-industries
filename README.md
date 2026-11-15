@@ -55,6 +55,26 @@
 Вариант 26 — контекст «обложка электронной музыки», элемент «фраза об освещении: neon rim light». **Часть 1 (Engee, SD Turbo + CLIP ViT-L/14):** сравнены запросы A (`electronic music cover art`) и B (`electronic music cover art, neon rim light`) на 5 seed. Результат: clip_target **+7.146** (10.97 → 18.12, значимо по 2s и по допуску ±1.0) — фраза об освещении работает; clip_subject +1.41 (чуть за допуском, но **вверх** — не увели от предмета); edge 0.000 (контрольная метрика — не меняется); contrast **+60 %** (neon rim light даёт яркий контур). **Часть 2 (DeepSeek, 9 чатов — 3 приёма × 3 повтора):** zero-shot K1=0.867, few-shot K1=0.933, step-by-step **K1=1.000** (без ошибок); K4 (стабильность): zero 0.800, few и step 0.867. Типичная ошибка DeepSeek — путает запрет цвета с запретом объекта (в `avoid` кладёт `"yellow"` вместо пустого массива). Версии совпадают с эталоном МУ: torch 2.4.1+cpu, diffusers 0.32.2, transformers 4.57.6.
 
 Материалы лежат в папке [`LR09/`](LR09/): исходный код (`src/lab09_lib.py`, `lab09_llm.py`, `LR09_v26.py`, `summarize_all.py`), артефакты (`artifacts/A_seed101.png`, `B_seed101.png`, 9 файлов ответов `ctx5_*.txt`, `summary_k1_k4.png`), журнал эксперимента (`journal.md`).
+
+
+## ЛР 10. Сравнительное исследование моделей text-to-image
+
+Вариант 26 — бриф 5 «обложка электронной музыки» (`cover art for an electronic music release, brushed metal surface with iridescent reflections, macro photography style, strong contrast...`), пара моделей: **SD Turbo** (A) и **bk-sdm-tiny** (B). 
+
+**Часть 1 (Engee, метрики):** сравнены SD Turbo (1 шаг, guidance 0.0, 512×512) и bk-sdm-tiny (10 шагов, guidance 7.5, 512×512) на 5 seed. Результат:
+- `clip_brief` (соответствие брифу): **+0.42** (23.31 → 23.74, незначимо, в допуске) — bk-sdm-tiny **не превосходит** SD Turbo.
+- `seconds` (время генерации): **+41.8 с** (15.86 → 57.66, значимо по 2s) — bk-sdm-tiny **в 3.63 раза медленнее**.
+- `contrast`: **+57 %** (0.1297 → 0.2035, значимо по 2s) — побочный эффект архитектуры bk.
+- `clip_text` и `edge`: в пределах разброса.
+
+**Часть 2 (Слепое сравнение):** по 5 листам `blind_<seed>.png` (порядок скрыт) автор выбрал лучшее изображение. Результат: **SD Turbo выиграл 4 пары из 5**, bk-sdm-tiny — 1 (seed 105). Визуально SD Turbo генерирует «стеклянную сферу с бликами» (соответствует брифу), а bk-sdm-tiny — абстрактные цветные полосы (не соответствует). Даже счет 5:0 не дал бы статистической значимости (2 × (1/2)^5 = 0.0625 > 0.05).
+
+**Версии:** torch 2.4.1+cpu, diffusers 0.32.2, transformers 4.57.6 (совпадают с эталоном МУ). Модели: SD Turbo (`b261bac6…`), bk-sdm-tiny (`0364108e…`), CLIP ViT-L/14 (`32bd6428…`).
+
+Материалы лежат в папке [`LR10/`](LR10/): исходный код (`src/lab10_lib.py`, `LR10_v26.py`), артефакты (`artifacts/turbo_s*.jpg`, `artifacts/bk_s*.jpg`, `artifacts/blind_*.png`, `blind_key.json`), журнал эксперимента (`journal.md`).
+
+
+
 ---
 
 ## Лицензии
