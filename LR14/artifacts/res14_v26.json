@@ -1,0 +1,40 @@
+{
+ "variant": 26,
+ "ctx": 5,
+ "factor": "style_low_only",
+ "A": {
+  "content_dist": 0.5226,
+  "style_dist": 0.826,
+  "ssim": 0.8426,
+  "color_dist": 0.0837,
+  "seconds": 24.7,
+  "evals": 43,
+  "sha256": "9ab1e4ceaf446c0e",
+  "loss_first": [
+   0.0,
+   22116.7
+  ],
+  "loss_last": [
+   335932.6,
+   3940.4
+  ]
+ },
+ "B": {
+  "content_dist": 0.0717,
+  "style_dist": 1.1224,
+  "ssim": 0.9333,
+  "color_dist": 0.0836,
+  "seconds": 8.8,
+  "evals": 43,
+  "sha256": "37af63db31c0ebca",
+  "loss_first": [
+   0.0,
+   1087.1
+  ],
+  "loss_last": [
+   6145.1,
+   185.7
+  ]
+ },
+ "repeat_sha256": "9ab1e4ceaf446c0e"
+}
